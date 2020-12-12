@@ -36,6 +36,7 @@ router.get('/new', (req,res) => {
 
 //Create Author Route
 router.post('/',  async (req,res) => {
+  //ini author (singular) karena nge-POST 1 (SATU) dong :))
   const author = new Author ({
     name: req.body.name
   })

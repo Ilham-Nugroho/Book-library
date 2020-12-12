@@ -1,1 +1,15 @@
-middle
+<h2>Recently Added</h2>
+
+
+<div class="row">
+  <div class="col-3">
+    <% books.forEach(book => { %>
+
+      <img height='150' width='100'
+      src="<%= book.coverImagePath %>" alt="">
+      
+
+    <%})%>
+  </div>
+
+</div>
