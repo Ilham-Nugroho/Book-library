@@ -9,8 +9,6 @@ router.get('/', async(req,res) => {
   if (req.query.name != null && req.query.name !== '') {
     searchOptions.name = new RegExp(req.query.name, 'i')
   }
-
-
   try {
     const authors = await Author.find(searchOptions)
     res.render('authors/index', {
@@ -37,10 +35,9 @@ router.post('/',  async (req,res) => {
   const author = new Author ({
     name: req.body.name
   })
-  try {
-
-    const newAuthor = await author.save()
-    res.redirect(`authors/${newAuthor.id}`)
+  try {  
+      const newAuthor = await author.save()
+      res.redirect(`authors/${newAuthor.id}`)
 
 
   } catch {
@@ -64,6 +61,7 @@ router.post('/',  async (req,res) => {
 
 
 //ROUTE :ID harus di bawah dari route get, post
+//Show Author with Id
 router.get('/:id', async (req,res) => {
   try{
     const author = await Author.findById(req.params.id)
@@ -78,6 +76,7 @@ router.get('/:id', async (req,res) => {
   }
 })
 
+//Edit Author
 router.get('/:id/edit', async (req, res) => {
 try {
   const author = await Author.findById(req.params.id)
@@ -87,6 +86,7 @@ try {
 }
 })
 
+//Update Author
 router.put('/:id', async (req,res) => {
   let author
   try {
@@ -106,6 +106,7 @@ router.put('/:id', async (req,res) => {
   }
 })
 
+//Delete Author
 router.delete ('/:id', async (req,res) => {
   let author
   try {

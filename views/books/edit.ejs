@@ -1,4 +1,4 @@
-<h2>Edit Book</h2>
+<h2 class="page-header">Edit Book</h2>
 
 <form class="" action="/books/<%= book.id%>?_method=PUT" method="post" >
 <!-- enctype="multipart/form-data" DALAM FORM DIHAPUS
@@ -9,5 +9,5 @@ FilePond IMAGENYA PAKAI base64 JSON -->
     <%- include('_form_fields') %>
 
     <a href="/books">Cancel</a>
-    <button type="submit" name="button">Update</button>
+    <button class="btn btn-primary" type="submit" name="button">Update</button>
 </form>
